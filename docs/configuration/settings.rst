@@ -91,7 +91,7 @@ results and others for error situations.
     Inactive users can be redirected to this URL when trying to authenticate.
 
 Successful URLs will default to ``SOCIAL_AUTH_LOGIN_URL`` while error URLs will
-fallback to ``SOCIAL_AUTH_LOGIN_ERROR_URL``.
+fall back to ``SOCIAL_AUTH_LOGIN_ERROR_URL``.
 
 
 User model
@@ -106,7 +106,7 @@ a setting::
 ``User`` model must have a ``username`` and ``email`` field, these are
 required.
 
-Also an ``is_authenticated`` and ``is_active`` boolean flags are recommended,
+Also, ``is_authenticated`` and ``is_active`` boolean flags are recommended;
 these can be methods if necessary (must return ``True`` or ``False``). If the
 model lacks them a ``True`` value is assumed.
 
@@ -243,7 +243,7 @@ allow some tweaks to the behavior of these.
 
     ``urllib2.urlopen`` uses ``socket.getdefaulttimeout()`` value by default, so
     setting ``socket.setdefaulttimeout(...)`` will affect ``urlopen`` when this
-    setting is not defined, otherwise this setting takes precedence. Also this
+    setting is not defined, otherwise this setting takes precedence. Also, this
     might affect other places in Django.
 
     ``timeout`` argument was introduced in python 2.6 according to `urllib2
@@ -258,12 +258,12 @@ address or domain name. To white-list just set any of these settings:
 
 ``SOCIAL_AUTH_<BACKEND_NAME>_WHITELISTED_DOMAINS = ['foo.com', 'bar.com']``
     Supply a list of domain names to be white-listed. Any user with an email
-    address on any of the allowed domains will login successfully, otherwise
+    address on any of the allowed domains will log in successfully, otherwise
     ``AuthForbidden`` is raised.
 
 ``SOCIAL_AUTH_<BACKEND_NAME>_WHITELISTED_EMAILS = ['me@foo.com', 'you@bar.com']``
     Supply a list of email addresses to be white-listed. Any user with an email
-    address in this list will login successfully, otherwise ``AuthForbidden``
+    address in this list will log in successfully, otherwise ``AuthForbidden``
     is raised.
 
 
@@ -282,7 +282,7 @@ Miscellaneous settings
 
 ``SOCIAL_AUTH_IMMUTABLE_USER_FIELDS = ['email',]``
     Set any field name that requires *protection* in this setting, and it won't
-    be updated after inital population. This setting is similar to 
+    be updated after initial population. This setting is similar to 
     ``SOCIAL_AUTH_PROTECTED_USER_FIELDS`` in that they both do not allow changes 
     of the data - however this one allows it to be set if no prior value exists.
     An example use case might be an application that seeds data from a social 
@@ -325,7 +325,7 @@ Miscellaneous settings
 Account disconnection
 ---------------------
 
-Disconnect is an side-effect operation and should be done by POST method only,
+Disconnect is a side effect operation and should be done by POST method only;
 some CSRF protection is encouraged (and enforced on Django app). Ensure that
 any call to `/disconnect/<backend>/` or `/disconnect/<backend>/<id>/` is done
 using POST.
@@ -334,7 +334,7 @@ using POST.
     When disconnecting an account, it is recommended to trigger a
     token revoke action in the authentication provider, that way we
     inform it that the token won't be used anymore and can be
-    disposed. By default the action is not triggered because it's not
+    disposed. By default, the action is not triggered because it's not
     a common option on every provider, and tokens should be disposed
     automatically after a short time.
 
